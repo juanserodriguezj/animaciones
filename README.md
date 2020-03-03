@@ -1,0 +1,2 @@
+# animaciones
+Las animaciones se definen como la transición entre un punto A y un punto B. Las animaciones son parte natural de las interfaces web y son una interfaz web necesaria, ya que son una forma natural de enseñanza para el usuario, ayudan a conectar una interfaz que solo esta programada con la sensación que algo está realmente vivo. Son necesarias la interacción de un usuario con la interfaz y que esta le dé retroalimentación ya que ninguna ocurre por si sola e instantánea
