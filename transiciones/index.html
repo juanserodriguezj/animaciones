@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transiciones CSS</title>
+    <style>
+        .pelota{
+            /* Tamaño de la pelota*/
+            width: 100px;
+            height: 100px;
+            /* borde redondeado */
+            border-radius: 50%;
+            /* Color de fondo */
+            background-color: lightcoral;
+            /* Transiciones */
+            transition-property: width, height;
+            transition-duration: 1s;
+            transition-timing-function: ease;
+        }
+        .pelota:hover {
+            /* Detonador de la transicion */
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="pelota"></div>
+</body>
+</html>
