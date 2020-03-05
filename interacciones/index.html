@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transiciones CSS</title>
+    <style>
+        /* Estilos al body */
+        body{
+            /* display para que se activen los alineados */
+            display: flex;
+            height: 100vh;
+            /* centrado vertical */
+            align-items: center;
+             /* centrado horizontal  */
+            justify-content: center;
+        }
+        .pelota{
+            /* Tamaño de la pelota*/
+            width: 100px;
+            height: 100px;
+            /* borde redondeado formando un circulo*/
+            border-radius: 50%;
+            /* Transiciones */
+            transition-property: width, height;
+            transition: 1s;
+            transition-timing-function: ease;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .pelota.a{
+            background-color: cadetblue;
+            left: 0;
+        }
+        .pelota.b{
+            background: cornflowerblue;
+            right: 0;
+        }
+        .pelota:hover {
+            /* Detonador de la transicion en las pelotas */
+            width: 200px;
+            height: 200px;
+            
+        }
+        .canasta{
+            border: 1px solid burlywood;
+            position: relative;
+            height: 100px;
+            width: 100%;
+            
+        }
+        .canasta:hover{
+            border: 2px solid gold;
+        }
+        .canasta:hover .pelota.a{
+            /* Detonador de la transicion en la canasta y las pelotas */
+            left: calc(50% - 100px);
+            
+        }
+        .canasta:hover .pelota.b{
+            /* Detonador de la transicion en la canasta y las pelotas */
+            right: calc(50% - 100px);
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="canasta">
+        <div class="pelota a">Hola</div>
+        <div class="pelota b">Mundo !</div>
+    </div>
+</body>
+</html>
