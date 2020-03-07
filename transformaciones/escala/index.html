@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escala CSS</title>
+    <style>
+        /* Voy a darle unas propiedades basicas al cuadrado*/
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: system-ui;
+          
+        }
+        .container{
+            border: 1px solid darkgreen;
+        }
+
+        .container:hover .cuadrado{
+            /* Vamos a modificarle el tamaño a nuestro elemento */
+            transform: scale(x,y);
+            /* Cambiando el ancho como el alto */
+            transform: scale(2,.5); /* 200% de ancho 50% de alto */
+            /* Tambien puedo modificar X y Y de una forma resumida con un solo valor */
+            transform: scale(xy);/* empieza en 0 y va hasta 1 */
+            transform: scale(2);/* Mi elemento duplica su tamaño, 200% */
+            transform: scale(.5);/* Mi elemento reduce su tamaño, 50% */
+
+
+        }
+
+        .cuadrado{
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #7dc900;
+            margin: 20px;
+             /* Animaciones */
+             transition: .3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Vamos a aplicar la rotacion a un cuadrado -->
+    <div class="container">
+        <div class="cuadrado">
+            ¡¡ Hola mundo !!
+        </div>
+        <!-- Quiero que mi elemento se mueva pero en disposición de su elemento padre por lo que crearemos un elemento container ↑ -->
+    </div>
+</body>
+</html>
