@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traslacion CSS</title>
+    <style>
+        /* Voy a darle unas propiedades basicas al cuadrado*/
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: system-ui;
+            /* Para que funcione el eje Z en nuestras traslaciones debo agregarle perspectiva */
+            perspective: 200px;
+            /* Puedo configurar el punto de origen de mi perspectiva para decir de donde esta empezando */
+            perspective-origin: center;/* Valor por defecto */
+            perspective-origin: top;/* Cambio el origen desde arriba */
+            perspective-origin: bottom;/* Cambio el origen desde abajo */
+            perspective-origin: right;/* Cambio el origen desde derecha */
+            perspective-origin: left;/* Cambio el origen desde izquierda */
+            /* Puedo asignar dos valores al mismo tiempo */
+            perspective-origin: x, y;
+            perspective-origin: top, right;
+            perspective-origin: top, left;
+            perspective-origin: bottom, left;
+            perspective-origin: bottom, right;
+        }
+        .container{
+            border: 1px solid darkgreen;
+        }
+
+        .container:hover .cuadrado{
+            /* Voy aplicar la transformacion de traslacion al cuadrado pero con base a una transicion que ocurra en su elemento padre */
+            /* Para mover el elemento a la derecha */
+            transform: translate(100px);
+            /* Para mover el elemento a la izquierda */
+            transform: translate(-100px);
+            /* Para mover el elemento en dos ejes (x,y)*/
+            transform: translate(100px, -100px);
+            /* Puedo especificar en que eje moverme solo X*/
+            transform: translateX(-100px);
+            /* Puedo especificar en que eje moverme solo Y*/
+            transform: translateY(100px);
+            /* Para usar el eje Z debo cambiar el contexto 2d en el que estoy por lo que debo ir al body y asignarle una perspectiva */
+
+            /* Ya agregada la funcion de perspectiva, ya puedo moverme dentro de la profundidad de mi elemento */
+            transform: translateZ(100px);
+            /* Puedo hacer una combinacion de las 3*/
+            /* transform: translate3d(x,y,z); */
+            transform: translate3d(10px,-10px,-100px);
+
+        }
+
+        .cuadrado{
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #7dc900;
+            margin: 20px;
+             /* Animaciones */
+             transition: .3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Vamos a aplicar la rotacion a un cuadrado -->
+    <div class="container">
+        <div class="cuadrado">
+            ¡¡ Hola mundo !!
+        </div>
+        <!-- Quiero que mi elemento se mueva pero en disposición de su elemento padre por lo que crearemos un elemento container ↑ -->
+    </div>
+</body>
+</html>
