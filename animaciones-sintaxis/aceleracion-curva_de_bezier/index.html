@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones CSS</title>
+    <style>
+        /* Voy a darle unas propiedades basicas al cuadrado*/
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: system-ui;
+        }
+        /* Que es lo que necesita nuestra animacion para funcionar. Basicamente un nombre de animacion y puedo aplicarla desde que la pagina carga o cuando hay un cambio dentro de algo*/
+        
+        .container{
+            border: 1px solid darkgreen;
+            width: 100%;
+        }
+
+        .container:hover .cuadrado{
+            animation-play-state: paused; /* Detiene el estado de la animacion*/
+
+        }
+
+        .cuadrado{
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #7dc900;
+            margin: 20px;
+            border-radius: 50%;
+             /* Animaciones */
+            /* Vamos a ponerla directamente al elemento para ver la sintaxis. animation recive dos valores nombre y duracion*/
+            animation-name: cuadrado;
+            animation-duration: 2s;
+            /* Hay mas cosas que podemos hacer dentro de la animacion */
+            animation-delay: 1s;
+            /* Tambien puedo contar el numero de veces que ocurre mi animacion */
+            animation-iteration-count: 2;/* numero de veces finita */
+            animation-iteration-count: infinite;/* numero de veces infinita */
+
+            /* como funciona el suabisado de mi animacion. */
+            /* animation-timing-function: ease;
+            animation-timing-function: ease-in;
+            animation-timing-function: ease-in-out;
+            animation-timing-function: ease-out;
+            animation-timing-function: linear; */
+
+            /* Tambien puedo decir en que direccion esta yendo, es decir de donde va empezar, 0% ó 100% */
+
+            /* animation-direction: reverse;  de visible a invisible */
+            animation-direction: alternate; /* de visible a /* invisible alternando valores, tambien para que este ejemplo rebote*/
+            animation-fill-mode: forwards; /* regresa a su estado incial*/
+            
+            position: relative;/* Para que funcione las posiciones eft right top bottom del @keyframes cuadrado*/
+
+            /* Por defecto, hay una asceleracion dentro de las animaciones de css, pero eso se puede configurar y cambiar para lograr el efecto deseado. Pero cual es esa propiedad que debemos configurar para cambiar este comportamiento? Pues son dos, animation-timing-function y animation-timing-function: cubic-bezier();*/
+            animation-timing-function: ease;
+            /* Asceleracion mas suave al inicio */
+            animation-timing-function: ease-in;
+            /* Asceleracion mas suave al inicio y al final */
+            animation-timing-function: ease-in-out;
+            /* Asceleracion mas suave al final */
+            animation-timing-function: ease-out;
+            /* Asceleracion contante todo el tiempo */
+            animation-timing-function: linear;
+            /* Podemos ir mas alla configurando nuestra asceleracion de otra forma, con las curvas de bezier configurando 4 para metros */
+            animation-timing-function: cubic-bezier(.44,1.59,.64,-0.58);
+            /* Para no hacer dicha configuracion a mano e intento por intento podemos usar a un recurso que se llama cubic-bezier.com */
+
+
+
+        }
+        /* Lo siguiente que hay que hacer es configurar mi animacion, con el selector @keyframes y el nombre de la animacion  */
+        @keyframes cuadrado{
+            /* Voy a decirle que va a hacer mi animacion, que voy a hacer en ese tiempo definiendo un estado inicial como 0% y un estado final como 100% */
+            0% {
+                left: 0;
+            }
+            /* Recordemos que para usar elementos de posicion como left right top bottom debemos usar un posicion relativa anteriormente
+            position: relative; en la clase cuadrado*/
+            100% {
+                left: calc(100% - 240px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Vamos a aplicar la rotacion a un cuadrado -->
+    <div class="container">
+        <div class="cuadrado">
+            ¡¡ Hola mundo !!
+        </div>
+        <!-- Quiero que mi elemento se mueva pero en disposición de su elemento padre por lo que crearemos un elemento container ↑ -->
+    </div>
+</body>
+</html>
