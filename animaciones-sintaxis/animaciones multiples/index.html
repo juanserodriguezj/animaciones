@@ -40,8 +40,8 @@
             border-radius: 50%;
             /* Animaciones */
             /* Vamos a ponerla directamente al elemento para ver la sintaxis. animation recive dos valores nombre y duracion*/
-            animation-name: cuadrado;
-            animation-duration: 2s;
+            animation-name: cuadrado, rebote;
+            animation-duration: 2s, .3s;
             /* Hay mas cosas que podemos hacer dentro de la animacion */
             animation-delay: 1s;
             /* Tambien puedo contar el numero de veces que ocurre mi animacion */
@@ -69,20 +69,18 @@
             /* Para que funcione las posiciones eft right top bottom del @keyframes cuadrado*/
 
             /* Por defecto, hay una asceleracion dentro de las animaciones de css, pero eso se puede configurar y cambiar para lograr el efecto deseado. Pero cual es esa propiedad que debemos configurar para cambiar este comportamiento? Pues son dos, animation-timing-function y animation-timing-function: cubic-bezier();*/
-            animation-timing-function: ease;
+            /* animation-timing-function: ease; */
             /* Asceleracion mas suave al inicio */
-            animation-timing-function: ease-in;
+            /* animation-timing-function: ease-in; */
             /* Asceleracion mas suave al inicio y al final */
             animation-timing-function: ease-in-out;
             /* Asceleracion mas suave al final */
-            animation-timing-function: ease-out;
+            /* animation-timing-function: ease-out; */
             /* Asceleracion contante todo el tiempo */
-            animation-timing-function: linear;
+            /* animation-timing-function: linear; */
             /* Podemos ir mas alla configurando nuestra asceleracion de otra forma, con las curvas de bezier configurando 4 para metros */
-            animation-timing-function: cubic-bezier(.44, 1.59, .64, -0.58);
+            /* animation-timing-function: cubic-bezier(.44, 1.59, .64, -0.58); */
             /* Para no hacer dicha configuracion a mano e intento por intento podemos usar a un recurso que se llama www.cubic-bezier.com */
-
-
 
         }
 
@@ -98,6 +96,16 @@
             position: relative; en la clase cuadrado*/
             100% {
                 left: calc(100% - 240px);
+            }
+        }
+
+        @keyframes rebote {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(100px) scale(1, .8);
             }
         }
     </style>
