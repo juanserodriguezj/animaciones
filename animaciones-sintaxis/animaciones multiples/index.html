@@ -9,7 +9,7 @@
         /* Voy a darle unas propiedades basicas al cuadrado*/
         body {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             height: 100vh;
             color: white;
@@ -33,7 +33,7 @@
             width: 200px;
             height: 200px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             background: #7dc900;
             margin: 20px;
@@ -41,13 +41,13 @@
             /* Animaciones */
             /* Vamos a ponerla directamente al elemento para ver la sintaxis. animation recive dos valores nombre y duracion*/
             animation-name: cuadrado, rebote;
-            animation-duration: 2s, .3s;
+            animation-duration: 3s, .3s;
             /* Hay mas cosas que podemos hacer dentro de la animacion */
             animation-delay: 1s;
             /* Tambien puedo contar el numero de veces que ocurre mi animacion */
             animation-iteration-count: 2;
             /* numero de veces finita */
-            animation-iteration-count: infinite;
+            animation-iteration-count: infinite, 20;
             /* numero de veces infinita */
 
             /* como funciona el suabisado de mi animacion. */
@@ -99,6 +99,15 @@
             }
         }
 
+        @keyframes escalera{
+            from {
+            transform: translateY(0);
+            }
+            to {
+            transform: translateY(500px);
+            }
+        }
+
         @keyframes rebote {
             from {
                 transform: translateY(0);
@@ -114,11 +123,23 @@
 <body>
     <!-- Vamos a aplicar la rotacion a un cuadrado -->
     <div class="container">
-        <div class="cuadrado">
+        <!-- Voy a agregar un elemento a id para poderlo detectar de manera mas facil por javascript -->
+        <div class="cuadrado" id="circulo">
             ¡¡ Hola mundo !!
         </div>
         <!-- Quiero que mi elemento se mueva pero en disposición de su elemento padre por lo que crearemos un elemento container ↑ -->
     </div>
+    <!-- Queremos detectar el final de una animacion, eso lo podemos hacer con javascript -->
+    <script>
+        const $circulo = document.getElementById('circulo');
+        /* $cuadrado.addEventListener ('nombre del evento', 'funtion que hacer cuando el evento ocurra')*/
+        $circulo.addEventListener('animationend', (event) => {
+            if (event.animationName === 'rebote'){
+                $cuadrado.style.animationName = 'cuadrado escalera';
+                $cuadrado.style.animationDuration = '3s';
+            }
+        })  
+    </script>
 </body>
 
 </html>
